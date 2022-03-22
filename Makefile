@@ -116,7 +116,7 @@ pack-version:
 	@echo "PACK_VERSION="${PACK_VERSION}""
 
 .PHONY: serve
-serve: export PACK_VERSION:=$(PACK_VERSION)
+serve: export HUGO_PACK_VERSION:=$(PACK_VERSION)
 serve: $(HUGO_BIN) pack-version pack-docs-update
 	@echo "> Serving..."
 ifeq ($(BASE_URL),)
@@ -126,7 +126,7 @@ else
 endif
 
 .PHONY: build
-build: export PACK_VERSION:=$(PACK_VERSION)
+build: export HUGO_PACK_VERSION:=$(PACK_VERSION)
 build: $(HUGO_BIN) pack-version pack-docs-update
 	@echo "> Building..."
 	$(HUGO_BIN)
